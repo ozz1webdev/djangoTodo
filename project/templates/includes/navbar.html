@@ -4,11 +4,11 @@
     <div class="logo">
         <img src="{% static 'icons/logo.webp' %}" alt="Logo">
     </div>
-    <div class="menuList">
+    <div class="navitems"
         <ul>
             <li><a href="{% url 'index' %}">Home</a></li>
             {% if request.user.is_authenticated %}
-                <li><a href="#">View Tasks</a></li>
+                <li><a href="#">My Tasks</a></li>
                 <li><a href="#">Add Task</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}
@@ -17,4 +17,4 @@
             {% endif %}
         </ul>
     </div>
-</div>
+</nav>
