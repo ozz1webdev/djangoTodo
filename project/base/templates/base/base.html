@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<div>
+    <h1>Home</h1>
+    {%if request.user.is_authenticated%}
+        <p class="animate__animated animate__backInLeft">This is the main page Welcome {{ user.username }}</p>
+    {% else %}
+        <p>This is the main page Please Register or Login</p>
+    {%endif%}
+
+</div>
+{% endblock %}
