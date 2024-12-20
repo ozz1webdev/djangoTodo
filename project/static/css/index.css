@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Lato";
+    src: url("../fonts/Lato-Regular.ttf");
+}
+@font-face {
+    font-family: "Lustria";
+    src: url("../fonts/Lustria-Regular.ttf");
+}
+
+* {
+    font-family: "Lustria", sans-serif;
+}
