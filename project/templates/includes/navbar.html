@@ -1,9 +1,16 @@
 {% load static %}
 
+
 <nav class="navbar">
     <div class="logo">
         <img src="{% static 'icons/logo.webp' %}" alt="Logo">
     </div>
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+        
     <div class="navitems"
         <ul>
             <li><a href="{% url 'index' %}">Home</a></li>

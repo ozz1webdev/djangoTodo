@@ -34,19 +34,40 @@
     font-family: 'Lato', sans-serif;
     text-decoration: none;
     color: black;
+    transition: 0.3s;
+}
+.navbar li a:hover {
+    text-decoration: underline;
+    color: rgb(219, 170, 11);
 }
 .logo img {
+    left: 10px;
+    padding: 3px;
     width: 40px;
     height: 40px;
 }
 
+/* Hamburger Menu Styles */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    background-color: black;
+    height: 3px;
+    width: 25px;
+    
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
 @media  screen and (max-width: 768px) {
-    .navbar {
+    .navitems {
         display: none;
     }
-}
-@media screen and (max-width: 480px) {
-    .navbar {
-        display: none;
+    .menu-toggle {
+        display: flex;
     }
 }
