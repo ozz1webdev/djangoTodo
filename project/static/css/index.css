@@ -14,7 +14,6 @@
 .container {
     display: flex;
     position: absolute;
-    background-color: cyan;
     top:60px;
     left:0;
     width:100%;
