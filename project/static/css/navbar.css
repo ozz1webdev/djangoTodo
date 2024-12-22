@@ -10,7 +10,7 @@
     left:0px;
     top:0px;
     border-bottom: 1px black solid;
-
+    z-index: 1;
 }
 .navitems {
     display: flex;
@@ -47,27 +47,78 @@
     height: 40px;
 }
 
-/* Hamburger Menu Styles */
+/* Hamburger Menu */
 .menu-toggle {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    z-index: 2;
 }
 
 .menu-toggle .bar {
     background-color: black;
     height: 3px;
     width: 25px;
-    
-    margin: 3px 0;
+    margin: 4px 0;
     transition: all 0.3s ease;
 }
-
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color:#fff;
+    z-index: 1;
+    display: none;
+}
 @media  screen and (max-width: 768px) {
     .navitems {
         display: none;
     }
     .menu-toggle {
         display: flex;
+        background-color:#fff;
+        cursor: pointer;
+    }
+    .menu-toggle.open .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.open .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.open .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+    .overlay.active {
+        display: block;
+    }
+    .overlay-content {
+        position: absolute;
+        color: #fff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    .overlay-content ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .overlay-content li {
+        margin: 10px 0;
+    }
+    .overlay-content a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+        transition: all 0.3s ease;
+    }
+    .overlay-content a:hover {
+        color: rgb(219, 170, 11);
     }
 }

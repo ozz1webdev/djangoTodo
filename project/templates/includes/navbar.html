@@ -10,6 +10,21 @@
         <span class="bar"></span>
         <span class="bar"></span>
     </div>
+    <div class="overlay" id="mobile-menu-overlay">
+        <div class="overlay-content">
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="#">My Tasks</a></li>
+                    <li><a href="#">Add Task</a></li>
+                    <li><a href="{% url 'logout' %}">{{user.username}} - Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'signup' %}">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
         
     <div class="navitems"
         <ul>
@@ -25,3 +40,5 @@
         </ul>
     </div>
 </nav>
+
+<script type="text/javascript" src="{% static 'js/navbar.js' %}"></script>
