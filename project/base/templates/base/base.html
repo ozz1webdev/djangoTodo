@@ -1,13 +1,29 @@
 {% extends 'index.html' %}
 {% load static %}
-
+<head>
+    <title>{% block head_title %}Home{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+<head>
 {% block content %}
 <div>
-    <h1>Home</h1>
     {%if request.user.is_authenticated%}
         <p class="animate__animated animate__backInLeft">This is the main page Welcome {{ user.username }}</p>
     {% else %}
-        <p>This is the main page Please Register or Login</p>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-image animate__animated animate__backInLeft">
+                <img src="{% static 'images/mainImage.webp' %}" alt="Hero Image" />
+              </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Stay Organized, Stay Productive</h1>
+                 <p class="hero-subtitle">Simplify your life with our powerful and intuitive to-do app. Plan your tasks, set reminders, and achieve your goals effortlessly.</p>
+            <div class="hero-cta">
+              <a href="/accounts/signup" class="btn btn-primary">Get Started for Free</a>
+              <a href="/features" class="btn btn-secondary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </section>
     {%endif%}
 
 </div>
