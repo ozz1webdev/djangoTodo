@@ -13,7 +13,7 @@
     <div class="overlay" id="mobile-menu-overlay">
         <div class="overlay-content">
             <ul class="animate__animated animate__fadeInLeft">
-                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
                 {% if request.user.is_authenticated %}
                     <li ><a href="#">My Tasks</a></li>
                     <li><a href="#">Add Task</a></li>
@@ -28,7 +28,7 @@
         
     <div class="navitems"
         <ul>
-            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
             {% if request.user.is_authenticated %}
                 <li><a href="#">My Tasks</a></li>
                 <li><a href="#">Add Task</a></li>

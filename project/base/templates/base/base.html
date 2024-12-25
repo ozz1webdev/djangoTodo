@@ -7,7 +7,7 @@
 {% block content %}
 <div>
     {%if request.user.is_authenticated%}
-        <p class="animate__animated animate__backInLeft">This is the main page Welcome {{ user.username }}</p>
+        {% include 'base/dashboard.html'%}
     {% else %}
     <section class="hero">
         <div class="container">
