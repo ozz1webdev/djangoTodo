@@ -6,8 +6,8 @@
     <h1>Dashboard</h1>
     <div class="container">
         <div class="icons animate__animated animate__fadeInDown">
-            <img src="{% static 'icons/viewTodos.png' %}" alt="view my todos list">
-            <img src="{% static 'icons/add.webp' %}" alt="add todo">
+            <a href="{% url 'viewTodos' %}"><img src="{% static 'icons/viewTodos.png' %}" alt="view my todos list"></a>
+            <a href="{% url 'addTodo' %}"><img src="{% static 'icons/add.webp' %}" alt="add todo"></a>
         </div>
         <div class="recent">
             <h2>Recent</h2>
