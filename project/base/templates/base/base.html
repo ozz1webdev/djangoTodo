@@ -3,11 +3,22 @@
 <head>
     <title>{% block head_title %}Home{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
 <head>
 {% block content %}
+
 <div>
     {%if request.user.is_authenticated%}
-        {% include 'base/dashboard.html'%}
+      <div class="container">
+        <h1>My Projects</h1><br />
+        {%if message%}
+          <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function () {
+              toastr.warning('{{ message }}');
+          });
+          </script>
+        {%endif%}
+      </div>
     {% else %}
     <section class="hero">
         <div class="container">
@@ -25,6 +36,5 @@
         </div>
       </section>
     {%endif%}
-
 </div>
 {% endblock %}
