@@ -18,6 +18,12 @@
           });
           </script>
         {%endif%}
+        {% for project in projects %}
+          <div class="projectContainer">
+            <h2>{{ project.projectName }}</h2>
+            <p>{{ project.description }}</p>
+          </div>
+        {% endfor %}
         <a href="{% url 'createProject' %}" class="btn btn-primary">Create Project</a>
       </div>
     {% else %}

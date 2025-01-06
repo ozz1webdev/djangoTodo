@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Task
-from .forms import TaskForm
+from .models import Task, project
+from .forms import createProjectForm
 
 
 def index(request):
@@ -11,11 +11,13 @@ def index(request):
 @login_required
 def home(request):
     if request.user.is_authenticated:
-        tasks = Task.objects.filter(owner=request.user)
-        if tasks.count() == 0:
+        projects = project.objects.filter(owner=request.user)
+        if projects.count() == 0:
             message = 'No projects found for this user yet'
+        else:
+            message = ''
         context = {
-            'tasks': tasks,
+            'projects': projects,
             'message': message
         }
         return render(request, 'base/base.html', context)
@@ -26,10 +28,21 @@ def home(request):
 @login_required
 def createProject(request):
     if request.method == 'GET':
-        form = TaskForm()
+        form = createProjectForm()
         return render(request, 'base/createProject.html', {'form': form})
 
-    return render(request, 'base/createProject.html')
+    if request.method == 'POST':
+        form = createProjectForm(request.POST)
+        if form.is_valid():
+            formProjectName = form.cleaned_data['projectName']
+            formDescription = form.cleaned_data['description']
+            project.objects.create(owner=request.user, projectName=formProjectName, description=formDescription)
+
+            message = 'Project created successfully'                
+            context = {
+                'message': message
+            }
+            return render(request, 'base/base.html', context)
 
 
 def deleteTodo(request):

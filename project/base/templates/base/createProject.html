@@ -7,13 +7,20 @@
 </head>
 {% block content %}
 
-<div class="container">
+<div class="createProContainer">
     <h2>Create Project</h2>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="form-group">
+            {{form.projectName}}
+        </div>
+        <br />
+        <div class="form-group">
+            {{form.description}}
+        </div>
+        <br />
         <button type="submit">Create</button>
-        <button type="cancel">Cancel</button>
+        <button type="cancel" onclick="history.back()">Cancel</button>
     </form>
 </div>
 
