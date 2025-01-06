@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Task
+from .forms import TaskForm
 
 
 def index(request):
@@ -19,11 +20,16 @@ def home(request):
         }
         return render(request, 'base/base.html', context)
     if request.user.is_anonymous:
-        return redirect('login')
+        return render('base/base.html')
 
 
-def addTodo(request):
-    return render(request, 'base/add.html')
+@login_required
+def createProject(request):
+    if request.method == 'GET':
+        form = TaskForm()
+        return render(request, 'base/createProject.html', {'form': form})
+
+    return render(request, 'base/createProject.html')
 
 
 def deleteTodo(request):
@@ -32,4 +38,3 @@ def deleteTodo(request):
 
 def viewTodo(request):
     return render(request, 'base/viewtodo.html')
-
