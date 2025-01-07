@@ -9,8 +9,8 @@
 
 <div>
     {%if request.user.is_authenticated%}
-      <div class="authContainer">
-        <h1>My Projects</h1><br />
+    <h1>My Projects</h1><br />
+    <div class="authContainer">
         {%if message%}
           <script type="text/javascript">
             document.addEventListener('DOMContentLoaded', function () {
@@ -19,14 +19,14 @@
           </script>
         {%endif%}
         {% for project in projects %}
-          <div class="projectsList">
-            <div class="projectContainer">
-              <h2>{{ project.projectName }}</h2>
-              <p>{{ project.description }}</p>
+            <div class="projectItem">
+              <a href="{% url 'projectDelete' project.pk %}">Delete</a>
+              <a href="{% url 'projectDetail' project.pk %}"> 
+                <h2>{{ project.projectName }}</h2>
+                <p>{{ project.description }}</p>
+              </a>
             </div>
-          </div>
         {% endfor %}
-        <a href="{% url 'createProject' %}" class="btn btn-primary">Create Project</a>
       </div>
     {% else %}
     <section class="hero">

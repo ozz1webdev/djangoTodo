@@ -54,9 +54,13 @@ def createProject(request):
                 return render(request, 'base/base.html', context)
 
 
-def deleteTodo(request):
-    return render(request, 'base/delete.html')
+@login_required
+def projectDetail(request, project_id):
+    selProject = project.objects.get(pk=project_id)
+    return render(request, 'base/projectDetail.html', {'project': selProject})
 
 
-def viewTodo(request):
-    return render(request, 'base/viewtodo.html')
+@login_required
+def projectDelete(request, project_id):
+    project.objects.filter(pk=project_id).delete()
+    return redirect('home')

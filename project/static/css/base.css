@@ -1,87 +1,85 @@
 .hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.hero-cta .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.hero-image img {
+  max-width: 50%;
+  height: auto;
+}
+.authContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.projectItem {
+  display: flex;
+  flex-direction: column;
+  border : 1px solid black;
+  margin: 3px;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 768px) {
+  .container {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
   }
-  
+
   .hero-content {
-    max-width: 50%;
+      max-width: 100%;
   }
-  
-  .hero-title {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
+  .hero-image {
+      max-width: 50%;
   }
-  
-  .hero-subtitle {
-    font-size: 1.5rem;
-    color: #555;
-    margin-bottom: 30px;
+  .hero-cta {
+      margin-top: 20px;
   }
-  
-  .hero-cta .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    text-decoration: none;
-    margin-right: 10px;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  .btn-secondary {
-    background-color: #6c757d;
-    color: #fff;
-  }
-  
-  .btn-secondary:hover {
-    background-color: #5a6268;
-  }
-  
-  .hero-image img {
-    max-width: 50%;
-    height: auto;
-  }
-  .projectsList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    width: 100%;
-    background-color: #0056b3;
-  }
-  .projectContainer {
-    display: flex;
-    flex-direction: column;
-    border : 1px solid black;
-    padding: 3px;
-    margin: 3px;
-  }
-  @media screen and (max-width: 768px) {
-    .container {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-    }
-  
-    .hero-content {
-        max-width: 100%;
-    }
-    .hero-image {
-        max-width: 50%;
-    }
-    .hero-cta {
-        margin-top: 20px;
-    }
-  }
+}
