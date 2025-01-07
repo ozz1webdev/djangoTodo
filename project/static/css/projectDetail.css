@@ -1,15 +1,11 @@
 .projectDetailContainer {
     display: flex;
-    flex-direction: row;
-    position: absolute;
     top:10px;
-    left:0;
     width:100%;
+    flex-direction: column;
+    color: red;
 }
 .projectTasks {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
     border: 1px solid black;
 }

@@ -7,6 +7,12 @@ state = (
     ('Done', 'Done'),
 )
 
+priority = (
+    (1, 'Low'),
+    (2, 'Medium'),
+    (3, 'High'),
+)
+
 
 class Project(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -24,7 +30,7 @@ class Task(models.Model):
     projectName = models.ForeignKey(Project, on_delete=models.CASCADE, default=1)
     title = models.CharField(max_length=255)
     description = models.TextField()
-    completed = models.BooleanField(default=False)
+    priority = models.IntegerField(default=1, choices=priority)
     state = models.CharField(max_length=255, default='ToDo', choices=state)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

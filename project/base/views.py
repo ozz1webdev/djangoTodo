@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Task, Project
-from .forms import createProjectForm
+from .forms import createProjectForm, AddTaskForm
 from django.contrib import messages
 
 
@@ -47,10 +47,7 @@ def createProject(request):
                 formDescription = form.cleaned_data['description']
                 Project.objects.create(owner=request.user, projectName=formProjectName, description=formDescription)
 
-                message = 'Project created successfully'                
-                context = {
-                    'message': message
-                }
+                messages.success(request, 'Project created successfully')
                 return redirect('home')
 
 
@@ -65,3 +62,10 @@ def projectDelete(request, project_id):
     Project.objects.filter(pk=project_id).delete()
     messages.success =(request, 'Project deleted successfully')
     return redirect('home')
+
+
+@login_required
+def addtask(request, project_id):
+    if request.method == 'GET':
+        form = AddTaskForm()
+        return render(request, 'base/addtask.html', {'form': form})

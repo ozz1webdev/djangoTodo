@@ -3,7 +3,7 @@
 
 <header>
     <link rel="stylesheet" href="{% static 'css/projectDetail.css' %}">
-    <title>{% block head_title %}Project Detail{% endblock %}</title>
+    <title>{% block head_title %}Project {{ project.projectName }}{% endblock %}</title>
 </header>
 
 {% block content %}
@@ -16,7 +16,7 @@
     </div>
     <div class="projectTasks">
         <div class="taskTodo">
-            <h3>Tasks To Do</h3>
+            <h3>To Do</h3>
             <ul>
                 {% for task in tasks %}
                     {% if task.status == "To Do" %}
@@ -24,9 +24,10 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+            <a href="{% url 'addtask' project.pk %}">Add Task</a>
         </div>
         <div class="taskInProgress">
-            <h3>Tasks In Progress</h3>
+            <h3>In Progress</h3>
             <ul>
                 {% for task in tasks %}
                     {% if task.status == "In Progress" %}
@@ -36,7 +37,7 @@
             </ul>
         </div>
         <div class="taskDone">
-            <h3>Tasks Done</h3>
+            <h3>Done</h3>
             <ul>
                 {% for task in tasks %}
                     {% if task.status == "Done" %}
