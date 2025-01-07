@@ -10,7 +10,7 @@ state = (
 
 class project(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    projectName = models.CharField(max_length=255)
+    projectName = models.CharField(max_length=255, unique=True)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

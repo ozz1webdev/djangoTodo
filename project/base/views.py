@@ -33,16 +33,25 @@ def createProject(request):
 
     if request.method == 'POST':
         form = createProjectForm(request.POST)
-        if form.is_valid():
-            formProjectName = form.cleaned_data['projectName']
-            formDescription = form.cleaned_data['description']
-            project.objects.create(owner=request.user, projectName=formProjectName, description=formDescription)
+        projectName = request.POST.get('projectName')
 
-            message = 'Project created successfully'                
+        if project.objects.filter(owner=request.user, projectName=projectName).exists():
+            message = 'Project name already exists'
             context = {
                 'message': message
             }
             return render(request, 'base/base.html', context)
+        else:
+            if form.is_valid():
+                formProjectName = form.cleaned_data['projectName']
+                formDescription = form.cleaned_data['description']
+                project.objects.create(owner=request.user, projectName=formProjectName, description=formDescription)
+
+                message = 'Project created successfully'                
+                context = {
+                    'message': message
+                }
+                return render(request, 'base/base.html', context)
 
 
 def deleteTodo(request):

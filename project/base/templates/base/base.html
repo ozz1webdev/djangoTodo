@@ -19,9 +19,11 @@
           </script>
         {%endif%}
         {% for project in projects %}
-          <div class="projectContainer">
-            <h2>{{ project.projectName }}</h2>
-            <p>{{ project.description }}</p>
+          <div class="projectsList">
+            <div class="projectContainer">
+              <h2>{{ project.projectName }}</h2>
+              <p>{{ project.description }}</p>
+            </div>
           </div>
         {% endfor %}
         <a href="{% url 'createProject' %}" class="btn btn-primary">Create Project</a>
@@ -34,7 +36,7 @@
               </div>
             <div class="hero-content">
                 <h1 class="hero-title">Stay Organized, Stay Productive</h1>
-                 <p class="hero-subtitle">Simplify your life with our powerful and intuitive to-do app. Plan your tasks, set reminders, and achieve your goals effortlessly.</p>
+                <p class="hero-subtitle">Simplify your life with our powerful and intuitive to-do app. Plan your tasks, set reminders, and achieve your goals effortlessly.</p>
             <div class="hero-cta">
               <a href="/accounts/signup" class="btn btn-primary">Get Started for Free</a>
               <a href="/features" class="btn btn-secondary">Learn More</a>
