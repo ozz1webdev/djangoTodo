@@ -8,7 +8,7 @@ state = (
 )
 
 
-class project(models.Model):
+class Project(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     projectName = models.CharField(max_length=255, unique=True)
     description = models.TextField()
@@ -21,7 +21,7 @@ class project(models.Model):
 
 class Task(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    projectName = models.ForeignKey(project, on_delete=models.CASCADE, default=1)
+    projectName = models.ForeignKey(Project, on_delete=models.CASCADE, default=1)
     title = models.CharField(max_length=255)
     description = models.TextField()
     completed = models.BooleanField(default=False)
